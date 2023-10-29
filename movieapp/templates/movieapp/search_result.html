@@ -1,0 +1,48 @@
+{% extends 'base.html' %}
+{% block main %}
+    <div class="row">
+        <div class="col-6 mx-auto">
+            <div class="row">
+                <h3>Search result</h3>
+                {{ table }} <!-- context['table'] -->
+                {% if object_list and table == 'country' %}
+                    <table class="table table-bordered table-hover">
+                        <thead>
+                        <tr>
+                            <th>Common name</th>
+                            <th>Official name</th>
+                        </tr>
+                        </thead>
+                        <tbody>
+                        {% for country in object_list %}
+                            <tr>
+                                <td>{{ country.common }}</td>
+                                <td>{{ country.official }}</td>
+                            </tr>
+                        {% endfor %}
+                        </tbody>
+                    </table>
+                {% elif table == 'movie' %}
+                    <table class="table table-bordered table-hover">
+                        <thead>
+                        <tr>
+                            <th>Title</th>
+                            <th>Year</th>
+                        </tr>
+                        </thead>
+                        <tbody>
+                        {% for movie in object_list %}
+                            <tr>
+                                <td>{{ movie.Title }}</td>
+                                <td>{{ movie.Year }}</td>
+                            </tr>
+                        {% endfor %}
+                        </tbody>
+                    </table>
+                    {% else %}
+                    <p class = "text-bg-danger">No result found!</p>
+                {% endif %}
+            </div>
+        </div>
+    </div>
+{% endblock %}

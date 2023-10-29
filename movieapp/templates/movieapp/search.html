@@ -1,0 +1,32 @@
+{% extends 'base.html' %}
+{% block main %}
+    <div class="row">
+        <form class="" action="{% url 'movieapp:search_result' %}" method="get">
+            <div class="col-8 mx-auto">
+                <h1>Search</h1>
+                <div class="row">
+                    <div class="col-4">
+                        <input type="text" class="form-control" id="site-search" name="search"
+                               placeholder="Search prhase">
+
+                    </div>
+                    <div class="col-4">
+                        <select name="table" id="table" class="form-select form-control" aria-label="Default select example">
+                            <option value="country">Country table</option>
+                            <option value="movie">Movie table</option>
+                        </select>
+                    </div>
+
+
+                    <div class="col-4">
+                        <input type="submit" value="Search" class="btn btn-primary mb-3 form-control">
+                    </div>
+                </div>
+
+
+            </div>
+        </form>
+    </div>
+
+
+{% endblock %}

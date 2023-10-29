@@ -1,0 +1,54 @@
+Ülesanne võib sisaldada segaseid asju. Siis tuleb küsida :)
+
+01. Loo django projekt koos rakneduse ja admin liidesega.
+02. Seadista static kaust. https://www.youtube.com/watch?v=bFsIXYygsg4
+03. Lae alla Bootstrapi teema https://startbootstrap.com/template/bare
+04. Seadista veebilehe template
+05. Seadista avaleht ja suunamine veebilehe avalehe (2 urls.py ja views.py)
+
+06. Tee menüüst eraldi fail (menu.html) tõstes selle base.html'ist välja.
+	Menüüs on lingid Home, Admin, Search, Lists, millest viimane sisaldab kahte 
+	valikut: Countries ja Movies (01 - Homepage.png)
+07. Muuda base.html <body> osa. Eemalda mitte vajalik osa ja tekita 
+    vajalikud template tagid. ehk panin base faili   {% block main %}
+    {% endblock %} ja index failis {% block main %}
+    <h1>Movie staff</h1> {% endblock %}
+08. Lisa projekti bootstrapi CSS ja JS failid ning lisa vajalik info base.html faili.
+    Compiled CSS and JS - https://getbootstrap.com/docs/5.3/getting-started/download/ 
+    base.html failis muuda lehe lõpus olev interneti aadressiga link lokaalsega.
+	
+09. Loo mudel Country, arvestades https://restcountries.com/ laetud infot.
+10. Kirjuta eraldiseisev skript (nagu esimesel django projektis populate_perosns.py)
+    mis täidab Country mudeli 246 riigiga.
+11. Lisa Country mudel admin lehele.
+12. Migreeri (makemigrations ja migrate) tabel ja loo admin lehele superuser kasutaja.
+    Kontrolli kas admin lehel on lisatud riigid näha. Mis juhtub, kui skript (punkt 10) 
+	uuesti käivitada?
+13. Tee html leht Search (02 - Search.png) Vaikimisi on otsing Country tabelist.
+14. Loo vaade (views.py) Search jaoks.
+15. Loo vaade (views.py) Search Result jaoks. See sisaldab vormilt otsingu fraasi võtmist,
+	ja päringu tegemist õigest tabelist. (Algul ainult üks!) Search result leht on 
+	(03 - Search_result_country.png)
+
+16. Näita riikide nimekirja (05 - List countries.png) koos leheküljendamisega 10 tk lehel.
+17. Riigi nimel klikkides nähakse riigi detailset infot (06 - Country Detail.png)
+	Lipu laius on 100 pikslit. Lipp on link, kui sellel klikkida, siis avaneb uuel vahelehel
+	täismõõdus.
+	Kaart on lingina. Kui klikkida avaneb kaart uuel vahelehel.
+
+18. Loo mudel Movies, arvestades eilse päeva (11.10.2023) otsingu tulemuse veerge (5 tk).
+19. Migreeri mudel.
+20. Kuidas toimub info lisamine filmide mudelisse? Kasutaja kirjutab otsingu aknasse fraasi 
+	ning valib tabeliks movies. Õnneliku (Response == True) otsingu tulemusena kirjutatakse 
+	kõik tulemused otsingu tabelisse. Vastuseks näidatakse siis (04 - Search_result_movie.png)
+	Mis juhtub, kui see film on juba tabelis? Katseta! Selleks, et filme lisada on vaja 
+	esimese django tunni skripti rida või täna juba tehtud punkt 10 skripti rida. Sel korral 
+	pole see lihtsalt eraldi skript.
+21. Filmide otsingu tulemus on pildil (04 - Search_result_movie.png). 
+
+22. Filmide nimekiri (07 - Movies List.png) on leheküljendamisega ja 10 filmi lehel.
+23. Klikkides filmi nimel näidatakse detailset filmi info (08 - Movie Detail.png).
+	imdb on klikitav link mis avaneb uuel vahelehel.
+	Postri puhul näidatakse pilti mille laius on 100 pikslit. Poster on klikitav. Klikkides
+	postil avaneb see link uuel vahelehel ja postrit näidatakse täismõõdus.
+	NB! Kõigil filmidel ei pruugi olla postrit. Siis postri rida üldse ei näita.
