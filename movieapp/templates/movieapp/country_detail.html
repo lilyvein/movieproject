@@ -1,0 +1,63 @@
+{% extends "base.html" %}
+{% block main %}
+    <div class="container">
+        <div class="row">
+            <div class="col-8 mt-2 mx-auto">
+                <h3>Country detail</h3>
+                <table class="table table-bordered ">
+                    <tr class="text-bg-light">
+                        <td>{{ country.common }}</td>
+                    </tr>
+                    <tr>
+                        <td>
+                            <table class="table table-bordered">
+                                <tr>
+                                    <th>Common name</th>
+                                    <td>{{ country.common }}</td>
+                                </tr>
+                                <tr>
+                                    <th>Official name</th>
+                                    <td>{{ country.official }}</td>
+                                </tr>
+                                <tr>
+                                    <th>Capital</th>
+                                    <td>{{ country.capital }}</td>
+                                </tr>
+                                <tr>
+                                    <th>Region</th>
+                                    <td>{{ country.region }}</td>
+                                </tr>
+                                <tr>
+                                    <th>Subregion</th>
+                                    <td>{{ country.subregion }}</td>
+                                </tr>
+                                <tr>
+                                    <th>Flag</th>
+                                    <td>
+                                        <a href="{{ country.flag }}" target="_blank">
+                                            <div class="image-frame"
+                                                 {% if not country.flag %}style="background-color: red;"{% endif %}>
+                                                <img src="{{ country.flag }}" style="width: 100px; height: auto;"
+                                                     alt="Flag">
+                                            </div>
+                                        </a>
+                                    </td>
+                                </tr>
+                                <tr>
+                                    <th>Map</th>
+                                    <td>
+                                        <a href="{{ country.map }}" target="_blank">Google Map</a>
+                                    </td>
+                                </tr>
+
+                            </table>
+                            <p class="text-end">
+                                <a href="{% url 'movieapp:country_list' %}">List of countries</a>
+                            </p>
+                        </td>
+                    </tr>
+                </table>
+            </div>
+        </div>
+    </div>
+{% endblock %}

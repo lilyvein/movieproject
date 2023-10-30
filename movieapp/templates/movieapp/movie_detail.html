@@ -1,0 +1,52 @@
+{% extends "base.html" %}
+{% block main %}
+    <div class="container">
+        <div class="row">
+            <div class="col-8 mt-2 mx-auto">
+                <h2>Movie detail</h2>
+                <table class="table table-bordered">
+                    <tr class="text-bg-light">
+                        <th>{{ movie.title }}</th>
+                    </tr>
+                    <tr>
+                        <td>
+                            <table class="table table-bordered">
+                                <tr>
+                                    <th>Title</th>
+                                    <td>{{ movie.title }}</td>
+                                </tr>
+                                <tr>
+                                    <th>Year</th>
+                                    <td>{{ movie.year }}</td>
+                                </tr>
+                                <tr>
+                                    <th>IMDB</th>
+                                    <td>
+                                        <a href="https://www.imdb.com/title/{{ movie.imdbID }}" target="_blank">IMDB</a>
+                                    </td>
+                                </tr>
+                                <tr>
+                                    <th>Type</th>
+                                    <td>{{ movie.type }}</td>
+                                </tr>
+                                {% if movie.poster %}
+                                    <tr>
+                                        <th>Poster</th>
+                                        <td>
+                                            <a href="{{ movie.poster }}" target="_blank">
+                                                <img src="{{ movie.poster }}" alt="{{ movie.title }} Poster" style="width: 100px; height: auto;">
+                                            </a>
+                                        </td>
+                                    </tr>
+                                {% endif %}
+                            </table>
+                            <p class="text-end">
+                                <a href="{% url 'movieapp:movie_list' %}">Movie list</a>
+                            </p>
+                        </td>
+                    </tr>
+                </table>
+            </div>
+        </div>
+    </div>
+{% endblock %}

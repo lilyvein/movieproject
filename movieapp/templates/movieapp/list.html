@@ -1,0 +1,37 @@
+{% extends 'base.html' %}
+{% block content %}
+    <div class="container">
+        <div class="row">
+            <div class="col-8 mx-auto">
+                <h3>Show countries</h3>
+                <table class="table table-bordered table-hover">
+                    <thead>
+                    <tr class="text-center">
+                        <th>Country</th>
+                        {% if user.is_authenticated %}
+                        <th>Action</th>
+                        {% endif %}
+                    </tr>
+                    </thead>
+                    <tbody>
+                    {% for country in countries %}
+                        <tr>
+                            <td>{{ country }}</td>
+                            {% if user.is_authenticated %}
+                            <td class="text-center">
+                                <a href="{% url 'movieapp:country_update' pk=country.id %}">Update</a>
+                                <a href="{% url 'movieapp:country_delete' pk=country.id %}" class="text-danger">Delete</a>
+                           {% endif %}
+                            </td>
+                        </tr>
+                    {% endfor %}
+                    </tbody>
+                </table>
+                <a href="{% url 'movieapp:index' %}">Add a new country</a>
+            </div>
+
+
+        </div>
+    </div>
+
+{% endblock %}
