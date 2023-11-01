@@ -23,13 +23,13 @@ class SearchResultView(ListView):
 
     def get_queryset(self):
         object_list =[]
-        query = self.request.GET.get("search_phrase")
-        self.table = self.request.GET.get("choose_table")
+        query = self.request.GET.get("search")
+        self.table = self.request.GET.get("table")
 
-        if self.table == "country_valik":
+        if self.table == "country":
            object_list = Country.objects.filter(common__icontains=query)
 
-        elif self.table == "movie_valik":
+        elif self.table == "movie":
             value = urllib.parse.quote(query)
             search = "s=" + value
             result = "&".join([settings.OMDB_URL, search])
@@ -48,7 +48,7 @@ class SearchResultView(ListView):
     def get_context_data(self, **kwargs):
         context = super().get_context_data(**kwargs)
 
-        context["choose_table"] = self.table
+        context["table"] = self.table
         return context
 
 class CountryListView(ListView):
